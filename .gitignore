@@ -1,0 +1,14 @@
+# Backend (Spring Boot / Maven)
+backend/target/
+backend/*.log
+backend/*.class
+backend/.idea/
+backend/*.iml
+
+# Frontend (Angular)
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+
+# General
+.DS_Store
