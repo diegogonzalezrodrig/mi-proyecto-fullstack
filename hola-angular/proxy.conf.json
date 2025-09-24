@@ -1,0 +1,7 @@
+{
+  "/saludo": {
+    "target": "http://demo:8080",
+    "secure": false,
+    "changeOrigin": true
+  }
+}
