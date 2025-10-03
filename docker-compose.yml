@@ -1,30 +1,29 @@
-version: '3.8'
 services:
   db:
     image: postgres:15
     container_name: postgres-db
     restart: always
     environment:
-      POSTGRES_USER: miusuario
-      POSTGRES_PASSWORD: mipassword
-      POSTGRES_DB: miappdb
+      - POSTGRES_USER=miusuario
+      - POSTGRES_PASSWORD=mipassword
+      - POSTGRES_DB=miappdb
     volumes:
-      - ./init.sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./postgres:/docker-entrypoint-initdb.d
     ports:
       - "5432:5432"
 
-  backend:
-    build: ./demo
-    container_name: demo
-    restart: always
-    depends_on:
-      - db
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/miappdb
-      SPRING_DATASOURCE_USERNAME: miusuario
-      SPRING_DATASOURCE_PASSWORD: mipassword
-      SPRING_JPA_HIBERNATE_DDL_AUTO: update
-      SPRING_JPA_SHOW_SQL: "true"
-      SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.PostgreSQLDialect
-    ports:
-      - "8080:8080"
+#  backend:
+#    build: ./demo
+#    container_name: demo
+#    restart: always
+#    depends_on:
+#      - db
+#    environment:
+#      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/miappdb
+#      SPRING_DATASOURCE_USERNAME: miusuario
+#      SPRING_DATASOURCE_PASSWORD: mipassword
+#      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+#      SPRING_JPA_SHOW_SQL: "true"
+#      SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.PostgreSQLDialect
+#    ports:
+#      - "8080:8080"

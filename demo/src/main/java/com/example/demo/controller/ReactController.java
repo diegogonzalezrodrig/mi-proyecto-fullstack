@@ -9,7 +9,7 @@ import java.util.Map;
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class ReactController {
-    @GetMapping("/saludo")
+    @GetMapping("/saludoReact")
     public Map<String, String> helloWorld() {
         return Map.of("helloWorld", "Hola Mundo");
     }
